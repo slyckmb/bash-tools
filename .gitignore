@@ -1,0 +1,12 @@
+# Temporary/editor files
+*.swp
+*.tmp
+*.log
+
+# Virtualenvs
+.venv/
+.env/
+
+# OS-specific
+.DS_Store
+Thumbs.db
