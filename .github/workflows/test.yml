@@ -14,11 +14,11 @@ jobs:
       - name: 🧱 Checkout bash-tools repo
         uses: actions/checkout@v4
 
-      - name: 🔗 Setup bash-test-tools (authenticated)
+      - name: 🔗 Setup bash-test-tools (PAT auth)
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASHTEST_PAT: ${{ secrets.BASHTEST_PAT }}
         run: |
-          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/slyckmb/bash-test-tools ../bash-test-tools
+          git clone https://x-access-token:${BASHTEST_PAT}@github.com/slyckmb/bash-test-tools ../bash-test-tools
 
       - name: 🛠 Install dependencies
         run: |
@@ -30,4 +30,3 @@ jobs:
 
       - name: 🧼 Run ShellCheck
         run: make lint
-
