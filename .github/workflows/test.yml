@@ -14,9 +14,11 @@ jobs:
       - name: 🧱 Checkout bash-tools repo
         uses: actions/checkout@v4
 
-      - name: 🔗 Setup bash-test-tools
+      - name: 🔗 Setup bash-test-tools (authenticated clone)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git clone https://github.com/slyckmb/bash-test-tools ../bash-test-tools
+          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/slyckmb/bash-test-tools ../bash-test-tools
 
       - name: 🛠 Install dependencies
         run: |
