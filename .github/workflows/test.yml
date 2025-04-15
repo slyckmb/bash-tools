@@ -1,0 +1,30 @@
+name: Test Bash Tools
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧱 Checkout bash-tools repo
+        uses: actions/checkout@v4
+
+      - name: 🔗 Setup bash-test-tools
+        run: |
+          git clone https://github.com/slyckmb/bash-test-tools ../bash-test-tools
+
+      - name: 🛠 Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y bats shellcheck git gh
+
+      - name: 🧪 Run tests
+        run: make test
+
+      - name: 🧼 Run ShellCheck
+        run: make lint
