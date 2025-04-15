@@ -1,10 +1,3 @@
-
----
-
-### ⚙️ 2. `Makefile`
-
-```bash
-cat > Makefile <<'EOF'
 SHELL := /bin/bash
 
 test:
@@ -14,4 +7,3 @@ lint:
 	shellcheck split_subdir_to_repo.sh
 
 .PHONY: test lint
-EOF
