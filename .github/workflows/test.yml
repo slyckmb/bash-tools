@@ -14,7 +14,7 @@ jobs:
       - name: 🧱 Checkout bash-tools repo
         uses: actions/checkout@v4
 
-      - name: 🔗 Setup bash-test-tools (authenticated clone)
+      - name: 🔗 Setup bash-test-tools (authenticated)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -30,3 +30,4 @@ jobs:
 
       - name: 🧼 Run ShellCheck
         run: make lint
+
