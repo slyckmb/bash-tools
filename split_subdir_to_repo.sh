@@ -3,7 +3,7 @@
 # =====================================================================
 # Script: split_subdir_to_repo.sh
 # Purpose: Extract a Git subdirectory into its own repo, copy .venv, and push to GitHub
-# Rev: rev4
+# Rev: rev4.2
 # =====================================================================
 
 set -euo pipefail  # rev4: Fail fast and detect unset variables
@@ -76,7 +76,6 @@ else
 fi
 
 SRC_SUBDIR="$SRC_REPO_ROOT/$SUBDIR"
-SRC_REPO_NAME=$(basename "$SRC_REPO_ROOT")
 
 # --- Determine target path ---
 if [ -n "$USER_PROVIDED_TARGET_DIR" ]; then
