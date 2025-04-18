@@ -1,0 +1,26 @@
+name: 🔐 Branch Protection
+
+on:
+  push:
+    branches: [main]  # Trigger only when main is updated
+  workflow_dispatch:  # Allow manual runs
+
+jobs:
+  apply-protection:
+    name: Apply Protection Rules
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔐 Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup GitHub CLI
+        uses: cli/gh-action@v2
+
+      - name: 🔐 Reapply branch protection for main and dev
+        run: |
+          gh auth setup-git
+          make protect-main
+          make protect-dev
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
