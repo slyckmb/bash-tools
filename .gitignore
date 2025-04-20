@@ -10,3 +10,4 @@
 # OS-specific
 .DS_Store
 Thumbs.db
+Makefile.future
