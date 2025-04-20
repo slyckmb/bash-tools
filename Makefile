@@ -13,7 +13,7 @@ test: ## 🧪 Run test suite with Bats
 
 ## 🧼 Run ShellCheck on main script
 lint: ## 🧼 Run ShellCheck on main script
-	shellcheck split_subdir_to_repo.sh
+	shellcheck bin/split_subdir_to_repo.sh
 
 ## 🔐 Apply protection to a branch (main or dev)
 protect-%: ## 🔐 Apply full protection rules to % branch
